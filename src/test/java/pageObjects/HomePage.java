@@ -14,9 +14,34 @@ public class HomePage extends BasePage {
 	
 	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
 	WebElement searchBox;
+ search-task
+	
+	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
+	WebElement searchIcon;
+	
+	@FindBy(xpath="//div[@class='sort-sortBy']")
+	WebElement sortBy;
+	
+
+	public boolean isHomePageDisplayed() {
+		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
+	}
+	
+	public void searchItem(String itemName) {
+		searchBox.sendKeys(itemName);
+	}
+	
+	public void clickSearchIcon() {
+		searchIcon.click();
+	}
+	
+	public boolean isProductsPageVisible() {
+		return sortBy.isDisplayed();
+
 
 
 	public boolean isHomePageDisplayed() {
 		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
+ main
 	}
 }

@@ -15,4 +15,13 @@ public class TC001_HomePageTest extends BaseClass {
 		Assert.assertTrue(isHomePageDisplayed);
 	}
 	
+	@Test
+	public void verify_search_product() {
+		HomePage homepage = new HomePage(driver);
+		homepage.searchItem("tshirt");
+		homepage.clickSearchIcon();
+		
+		Assert.assertTrue(homepage.isProductsPageVisible());
+	}
+	
 }
