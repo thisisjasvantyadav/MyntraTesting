@@ -21,8 +21,6 @@ public class TC001_HomePageTest extends BaseClass {
 
 	    homepage.searchItem("tshirt");
 
-	    // DEBUG
-	    System.out.println(driver.getCurrentUrl());
 
 	    Assert.assertTrue(homepage.isProductsPageVisible(),
 	            "Products page not displayed");

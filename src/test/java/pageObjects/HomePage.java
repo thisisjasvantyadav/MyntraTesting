@@ -36,8 +36,6 @@ public class HomePage extends BasePage {
 	    searchBox.click();
 	    searchBox.clear();
 	    searchBox.sendKeys(itemName);
-
-	    // wait a bit for suggestions to load
 	    wait.until(ExpectedConditions.visibilityOf(searchBox));
 
 	    searchBox.sendKeys(Keys.ENTER);
