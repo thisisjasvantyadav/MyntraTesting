@@ -14,7 +14,6 @@ public class HomePage extends BasePage {
 	
 	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
 	WebElement searchBox;
-
 	
 	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
 	WebElement searchIcon;
@@ -37,11 +36,7 @@ public class HomePage extends BasePage {
 	
 	public boolean isProductsPageVisible() {
 		return sortBy.isDisplayed();
-	}
-
-
-	public boolean isHomePageDisplayed() {
-		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
 
 	}
+
 }
