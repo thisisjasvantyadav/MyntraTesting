@@ -4,8 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
-	
+public class HomePage extends BasePage {
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
@@ -15,16 +14,9 @@ public class HomePage extends BasePage{
 	
 	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
 	WebElement searchBox;
-	
-	public boolean isProfileIconDisplayed() {
-		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
-	}
+
 
 	public boolean isHomePageDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
+		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
 	}
-	
-	
-
 }
