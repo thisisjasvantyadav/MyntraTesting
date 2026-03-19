@@ -16,13 +16,27 @@ public class HomePage extends BasePage{
 	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
 	WebElement searchBox;
 	
-	public boolean isProfileIconDisplayed() {
-		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
-	}
+	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
+	WebElement searchIcon;
+	
+	@FindBy(xpath="//div[@class='sort-sortBy']")
+	WebElement sortBy;
+	
 
 	public boolean isHomePageDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
+		return (profileIcon.isDisplayed() && searchBox.isDisplayed());
+	}
+	
+	public void searchItem(String itemName) {
+		searchBox.sendKeys(itemName);
+	}
+	
+	public void clickSearchIcon() {
+		searchIcon.click();
+	}
+	
+	public boolean isProductsPageVisible() {
+		return sortBy.isDisplayed();
 	}
 	
 	
