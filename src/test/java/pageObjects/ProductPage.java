@@ -10,7 +10,7 @@ public class ProductPage extends BasePage {
 		super(driver);
 	}
 	
-	@FindBy(xpath="//img[@title='nostrum Men Polo Collar Dri-FIT Slim Fit T-shirt']")
+	@FindBy(xpath="//img[@title='CULT Train In Comfortech-Shirt']")
 	WebElement product;
 	
 	@FindBy(xpath="//div[3]//div[1]//button[1]//p[1]")

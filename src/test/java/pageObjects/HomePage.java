@@ -1,8 +1,14 @@
 package pageObjects;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
 	public HomePage(WebDriver driver) {
@@ -15,10 +21,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
 	WebElement searchBox;
 	
-	@FindBy(xpath="//input[@placeholder='Search for products, brands and more']")
-	WebElement searchIcon;
-	
-	@FindBy(xpath="//div[@class='sort-sortBy']")
+	@FindBy(xpath="//span[contains(text(),'Sort by')]")
 	WebElement sortBy;
 	
 
@@ -27,16 +30,23 @@ public class HomePage extends BasePage {
 	}
 	
 	public void searchItem(String itemName) {
-		searchBox.sendKeys(itemName);
-	}
-	
-	public void clickSearchIcon() {
-		searchIcon.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    wait.until(ExpectedConditions.elementToBeClickable(searchBox));
+	    searchBox.click();
+	    searchBox.clear();
+	    searchBox.sendKeys(itemName);
+
+	    // wait a bit for suggestions to load
+	    wait.until(ExpectedConditions.visibilityOf(searchBox));
+
+	    searchBox.sendKeys(Keys.ENTER);
 	}
 	
 	public boolean isProductsPageVisible() {
-		return sortBy.isDisplayed();
-
+		return driver.getCurrentUrl().toLowerCase().contains("tshirt");
 	}
+	
+	
 
 }
